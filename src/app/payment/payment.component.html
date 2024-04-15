@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <h1>Paystack Payment</h1>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <form (ngSubmit)="handelSubmit()" [formGroup]="paymentFormGroup">
+        <div>
+          <label style="margin-right: 362px" for="Username">Username</label>
+          <input
+            class="form-control"
+            type="text"
+            id="Username"
+            name="Username"
+            required
+            formControlName="Username"
+          />
+        </div>
+        <div>
+          <label style="margin-right: 362px" for="Email">Email</label>
+          <input
+            class="form-control"
+            type="email"
+            id="Email"
+            name="Email"
+            required
+            formControlName="Email"
+          />
+        </div>
+       
+        <div>
+          <label style="margin-right: 362px" for="Firstname">Firstname</label>
+          <input
+            class="form-control"
+            type="text"
+            id="Firstname"
+            name="Firstname"
+            required
+            formControlName="Firstname"
+          />
+        </div>
+
+        <div>
+          <label style="margin-right: 362px" for="Lastname"
+            >Lastname</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            id="Lastname"
+            placeholder=""
+            name="Lastname"
+            required
+            formControlName="Lastname"
+          />
+        </div>
+        <div>
+          <label style="margin-right: 362px" for="Amount">Amount</label>
+          <input
+            class="form-control"
+            type="number"
+            placeholder=""
+            id="Amount"
+            name="Amount"
+            required
+            formControlName="Amount"
+          />
+        </div>
+        <br />
+        <button angular4-paystack
+        [paystackOptions]="options"
+        (paymentInit)="paymentInit()"
+        (onClose)="paymentCancel()"
+        (callback)="paymentDone($event)" type="submit" class="btn btn-success">Make Payment</button>
+      </form>
+    </div>
+  </div>
+</div>
